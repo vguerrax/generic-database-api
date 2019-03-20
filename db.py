@@ -25,7 +25,7 @@ def executa_query(dados_conexao, query):
             retorno["linhas_afetadas"] = linhas_afetadas
             if 'SELECT' in str(query).upper():
                 dados = cursor.fetchall()
-                retorno["dados"] =  dados
+                retorno["dados"] =  str(dados)
         conexao.commit()
     except:
         err = sys.exc_info()[1]
