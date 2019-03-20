@@ -10,7 +10,7 @@ json = \
 {
 	"conexao" : 
 	{
-		"type" : "Tipo de servidor de banco de dados, um dos" + str(tipos_servidores),
+		"type" : "Tipo de servidor de banco de dados, um dos " + str(tipos_servidores),
 		"host" : "Nome ou IP do servidor de banco de dados",
 		"database" : "Nome do banco de dados",
 		"user" : "Usuário para conexão",
