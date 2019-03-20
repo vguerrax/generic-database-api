@@ -25,7 +25,7 @@ json = \
 @app.route("/")
 @cross_origin()
 def hello():
-    return "Olá mundo!!"
+    return jsonify({'msg': "Olá mundo!!"})
 
 @app.route("/run", methods=['GET', 'PUT'])
 @cross_origin()
