@@ -23,7 +23,7 @@ json = \
 def hello():
     return "Olá mundo!!"
 
-@app.route("/banco-dados/run", methods=['GET', 'POST'])
+@app.route("/run", methods=['GET', 'POST'])
 def run():
     if request.method == 'GET':
         return jsonify(json)
