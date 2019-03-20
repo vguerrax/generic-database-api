@@ -25,13 +25,17 @@ def hello():
 
 @app.route("/run", methods=['GET', 'POST'])
 def run():
+    response = None
     if request.method == 'GET':
-        return jsonify(json)
+        response = jsonify(json)
+        return response
     elif request.method == 'POST':
         dados_conexao = request.get_json()['conexao']
         query = request.get_json()['query']
         retorno = executa_query(dados_conexao, query)
-        return jsonify(retorno)
+        response = jsonify(retorno)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
