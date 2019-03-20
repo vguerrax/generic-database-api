@@ -26,10 +26,10 @@ def hello():
 @app.route("/run", methods=['GET', 'PUT'])
 def run():
     response = None
-    if request.method == 'PUT':
+    if request.method == 'GET':
         response = jsonify(json)
         return response
-    elif request.method == 'POST':
+    elif request.method == 'PUT':
         dados_conexao = request.get_json()['conexao']
         query = request.get_json()['query']
         retorno = executa_query(dados_conexao, query)
