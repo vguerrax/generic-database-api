@@ -1,9 +1,12 @@
 # -*- coding: UTF-8 -*-
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from db import executa_query
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 tipos_servidores = ('MySQL')
 json = \
@@ -20,10 +23,12 @@ json = \
 }
 
 @app.route("/")
+@cross_origin()
 def hello():
     return "Olá mundo!!"
 
 @app.route("/run", methods=['GET', 'PUT'])
+@cross_origin()
 def run():
     response = None
     if request.method == 'GET':
