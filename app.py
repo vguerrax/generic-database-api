@@ -23,10 +23,10 @@ json = \
 def hello():
     return "Olá mundo!!"
 
-@app.route("/run", methods=['GET', 'POST'])
+@app.route("/run", methods=['GET', 'PUT'])
 def run():
     response = None
-    if request.method == 'GET':
+    if request.method == 'PUT':
         response = jsonify(json)
         return response
     elif request.method == 'POST':
