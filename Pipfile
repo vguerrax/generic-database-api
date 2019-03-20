@@ -9,6 +9,7 @@ verify_ssl = true
 Flask = "*"
 Flask-Cors = "*"
 pymysql = "*"
+simplejson = "*"
 
 [requires]
 
