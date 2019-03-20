@@ -1,12 +1,12 @@
 # -*- coding: UTF-8 -*-
 import os
 from flask import Flask, request, jsonify
-#from flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 from db import executa_query
 
 app = Flask(__name__)
-#cors = CORS(app)
-#app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 tipos_servidores = ('MySQL')
 json = \
@@ -23,12 +23,12 @@ json = \
 }
 
 @app.route("/")
-#@cross_origin()
+@cross_origin()
 def hello():
     return jsonify({'msg': "Olá mundo!!"})
 
 @app.route("/run", methods=['GET', 'PUT'])
-#@cross_origin()
+@cross_origin()
 def run():
     response = None
     if request.method == 'GET':
@@ -43,4 +43,4 @@ def run():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port)
