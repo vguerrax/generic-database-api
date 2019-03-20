@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 import os
 from flask import Flask, request, jsonify
-from validate import json
 from db import executa_query
 
 app = Flask(__name__)
