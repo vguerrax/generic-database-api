@@ -39,7 +39,6 @@ def run():
         query = request.get_json()['query']
         retorno = executa_query(dados_conexao, query)
         response = jsonify(retorno)
-        response.headers.add('Access-Control-Allow-Origin', '*')
         return response
 
 if __name__ == "__main__":
