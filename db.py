@@ -23,9 +23,9 @@ def executa_query(dados_conexao, query):
         with conexao.cursor() as cursor:
             linhas_afetadas = cursor.execute(query)
             retorno["linhas_afetadas"] = linhas_afetadas
-            if 'SELECT' in str(query).upper():
-                linhas = cursor.fetchall()
-                retorno["dados"] =  linhas
+            #if 'SELECT' in str(query).upper() or 'SHOW' in str(query).upper():
+            linhas = cursor.fetchall()
+            retorno["dados"] =  linhas
         conexao.commit()
     except:
         err = sys.exc_info()[1]
