@@ -16,7 +16,7 @@ def salt_generator(size=21, chars=string.ascii_uppercase + string.digits):
     return salt
 
 def key_salt_generator(host, date):
-    key = salt_generator() + '$' +  host  + '$' + str(date.timestamp())
+    key = salt_generator().get('value') + '$' +  host  + '$' + str(date.timestamp())
     key = b64encode(str(key).encode('utf-8')).decode('utf-8')
     return key
 
