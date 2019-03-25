@@ -87,6 +87,7 @@ def gsalt():
         response = jsonify(gsalt)
         host = request.headers['Host']
         response.headers['Key-Salt'] = salve_salt_on_list(gsalt, host)
+        response.headers['Access-Control-Expose-Headers'] = 'Key-Salt'
         return response
     elif request.method == 'PUT':
         key = request.get_json().get('key-salt')
